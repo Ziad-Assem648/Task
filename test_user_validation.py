@@ -2,8 +2,6 @@ import unittest
 from user_validation import UserValidation
 
 class TestUserValidation(unittest.TestCase):
-
-    # Email tests
     def test_valid_email_returns_true(self):
         self.assertTrue(UserValidation.validate_email("user@example.com"))
 
@@ -20,7 +18,7 @@ class TestUserValidation(unittest.TestCase):
         self.assertTrue(UserValidation.validate_email("user@mail.company.com"))
 
     def test_email_with_special_characters_returns_true(self):
-        self.assertTrue(UserValidation.validate_email("ramy.gomaa_21@mail.co"))
+        self.assertTrue(UserValidation.validate_email("ziad.assem_21@mail.co"))
 
     def test_uppercase_email_returns_true(self):
         self.assertTrue(UserValidation.validate_email("USER@MAIL.COM"))
@@ -34,24 +32,23 @@ class TestUserValidation(unittest.TestCase):
     def test_none_email_returns_false(self):
         self.assertFalse(UserValidation.validate_email(None))
 
-    # Username tests
     def test_valid_username_returns_true(self):
-        self.assertTrue(UserValidation.validate_username("ramy_gomaa"))
+        self.assertTrue(UserValidation.validate_username("ziad_assem"))
 
     def test_username_too_short_returns_false(self):
         self.assertFalse(UserValidation.validate_username("ab"))
 
     def test_username_too_long_returns_false(self):
-        self.assertFalse(UserValidation.validate_username("ramygomaaisaverylongusername"))
+        self.assertFalse(UserValidation.validate_username("ziadassemaisaverylongusername"))
 
     def test_username_with_spaces_returns_false(self):
-        self.assertFalse(UserValidation.validate_username("ramy gomaa"))
+        self.assertFalse(UserValidation.validate_username("ziad assem"))
 
     def test_username_with_symbols_returns_false(self):
-        self.assertFalse(UserValidation.validate_username("ramy@123"))
+        self.assertFalse(UserValidation.validate_username("ziad@123"))
 
     def test_username_with_digits_returns_true(self):
-        self.assertTrue(UserValidation.validate_username("ramy123"))
+        self.assertTrue(UserValidation.validate_username("ziad123"))
 
     def test_empty_username_returns_false(self):
         self.assertFalse(UserValidation.validate_username(""))
@@ -59,7 +56,6 @@ class TestUserValidation(unittest.TestCase):
     def test_none_username_returns_false(self):
         self.assertFalse(UserValidation.validate_username(None))
 
-    # Phone number tests
     def test_valid_vodafone_number_returns_true(self):
         self.assertTrue(UserValidation.validate_phone_number("01012345678"))
 
@@ -93,7 +89,6 @@ class TestUserValidation(unittest.TestCase):
     def test_none_phone_returns_false(self):
         self.assertFalse(UserValidation.validate_phone_number(None))
 
-    # National ID tests
     def test_valid_national_id_returns_true(self):
         self.assertTrue(UserValidation.validate_national_id("29812251234567"))
 
@@ -123,7 +118,6 @@ class TestUserValidation(unittest.TestCase):
 
     def test_none_national_id_returns_false(self):
         self.assertFalse(UserValidation.validate_national_id(None))
-
 
 if __name__ == "__main__":
     unittest.main()
